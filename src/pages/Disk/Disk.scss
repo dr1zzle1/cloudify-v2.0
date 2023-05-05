@@ -1,0 +1,29 @@
+@import '../../variables';
+
+.disk {
+  margin-left: 300px;
+  &__wrapper {
+    position: relative;
+    flex: 1 1 auto;
+    width: 100%;
+    min-height: 100vh;
+    background-color: #fafafa;
+  }
+  @media (max-width: 992px) {
+    margin: 0;
+  }
+}
+.drop-area {
+  position: absolute;
+  height: calc(100vh - 40px);
+  width: calc(100vw - 40px);
+  color: $tertiary;
+  font-size: 30px;
+  margin: 20px;
+  background-color: rgba($color: $dark, $alpha: 0.7);
+  border-radius: 40px;
+  border: solid $tertiary 2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

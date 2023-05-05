@@ -1,0 +1,53 @@
+@import '../../variables';
+
+.file-list {
+  display: grid;
+  grid-auto-rows: 300px;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 35px;
+  margin-top: 30px;
+
+  &__wrapper {
+    position: relative;
+    margin-top: 77px;
+    padding: 50px 40px 20px 50px;
+    background-color: #fafafa;
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    svg {
+      width: 30px;
+      height: 30px;
+    }
+
+    span {
+      font-size: 40px;
+    }
+
+    button {
+      background: none;
+      border: none;
+      cursor: pointer;
+
+      &:hover {
+        svg {
+          transition: all 0.1s linear;
+          fill: $primary;
+        }
+      }
+    }
+  }
+  @media (max-width: 768px) {
+    grid-auto-rows: 200px;
+    grid-column-gap: 20px;
+    grid-template-columns: 1fr 1fr;
+
+    &__wrapper {
+      padding: 10px 20px;
+    }
+  }
+}

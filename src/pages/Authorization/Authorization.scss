@@ -1,0 +1,51 @@
+@import '../../variables';
+
+.auth {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  padding: 20px;
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 44px 40px;
+    border-radius: 10px;
+    box-shadow: 0 1px 20px rgb(88 61 161 / 60%);
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+  }
+
+  &__fields {
+    margin-top: 10px;
+    margin-bottom: 15px;
+    color: $tertiary;
+    font-size: 20px;
+    border: none;
+    border-bottom: 1px $tertiary solid;
+    outline: none;
+  }
+
+  &__signup-link {
+    margin-top: 40px;
+    color: $tertiary;
+    font-weight: 400;
+  }
+}
+
+h1 {
+  font-size: 24px;
+}
+
+h2 {
+  margin-top: 20px;
+  color: $tertiary;
+  font-weight: 400;
+  font-size: 14px;
+}

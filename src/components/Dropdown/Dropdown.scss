@@ -1,0 +1,47 @@
+@import '../../variables';
+
+.dropdown-content {
+  position: absolute;
+  top: 50px;
+  right: 0;
+  z-index: 1;
+  display: none;
+  padding: 10px 30px;
+  background-color: #ddd;
+  border-radius: 15px;
+  box-shadow: 0 8px 16px 0 rgb(0 0 0 / 20%);
+
+  &:hover {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.dropdown-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+
+  svg {
+    width: 20px;
+    height: 20px;
+    background: none;
+    transition: all 0.1s linear;
+  }
+
+  &--delete:hover {
+    svg {
+      fill: #ff7077;
+    }
+  }
+
+  &--download {
+    margin-top: 10px;
+
+    &:hover {
+      svg {
+        fill: $secondary;
+      }
+    }
+  }
+}

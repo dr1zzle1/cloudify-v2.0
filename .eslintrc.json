@@ -1,0 +1,39 @@
+{
+    "env": {
+        "browser": true,
+        "es2021": true
+    },
+    "extends": [
+        "plugin:react/recommended",
+		"plugin:react/jsx-runtime",
+		"plugin:react-hooks/recommended",
+		"plugin:import/recommended"
+    ],
+	"plugins": ["prettier","react"],
+    "overrides": [
+    ],
+    "parserOptions": {
+        "ecmaVersion": "latest",
+        "sourceType": "module"
+    },
+    "rules": {
+		"react/prop-types": "off",
+		"prettier/prettier": 2,
+		"import/order": [
+			"error",
+			{
+			  "groups": [
+				["builtin", "external"]
+			  ],
+			  "newlines-between": "always"
+			}
+		  ]
+    },
+	"settings": {
+		"import/resolver": {
+		  "node": {
+			"extensions": [".js", ".jsx", ".ts", ".tsx"]
+		  }
+		}
+	  }
+}

@@ -1,0 +1,114 @@
+@import '../../variables';
+
+.uploader {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  width: 300px;
+  height: 350px;
+  padding: 20px;
+  padding-top: 10px;
+  overflow-y: auto;
+  background-color: #fff;
+  border: 3px solid $primary;
+  border-radius: 12px;
+  opacity: 0;
+
+  &-visible {
+    display: block;
+    animation: uploaderAnimVisible 500ms forwards;
+  }
+
+  &-unvisible {
+    animation: uploaderAnimUnvisible 500ms forwards;
+  }
+  @media (max-width: 768px) {
+    display: none;
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+
+  &__tittle {
+    color: #fff;
+    font-size: 12rem;
+  }
+
+  &__close {
+    padding: 3px;
+    font-weight: 900;
+    font-size: 20px;
+    background: #fff;
+    border: none;
+    cursor: pointer;
+  }
+}
+
+.upload-file {
+  margin: 5px 0;
+  padding: 5px 10px;
+  background-color: #fff;
+  border-top: 2px solid $tertiary;
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__progressBar {
+    position: relative;
+    display: flex;
+    height: 1rem;
+    margin: 3px 0;
+    background-color: #000;
+    border-radius: 8px;
+  }
+
+  &__uploadBar {
+    background-color: #7eb948;
+    border-radius: 8px;
+  }
+
+  &__percent {
+    position: absolute;
+    top: 0;
+    left: 45%;
+    color: #fff;
+  }
+
+  &__remove {
+    font-weight: 700;
+    background: #fff;
+    border: none;
+    cursor: pointer;
+  }
+}
+
+@keyframes uploaderAnimVisible {
+  0% {
+    transform: translateY(50%);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes uploaderAnimUnvisible {
+  0% {
+    display: block;
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  100% {
+    display: none;
+    transform: translateY(50%);
+    opacity: 0;
+  }
+}

@@ -1,0 +1,104 @@
+@import '../../variables.scss';
+
+.header {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 300px;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 40px 10px 50px;
+  font-size: 15px;
+  background: #fff;
+  border-bottom: 2px solid #afafaf;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  box-shadow: 0 -6px 4px -4px rgb(0 0 0 / 100%);
+
+  &__btns {
+    display: flex;
+  }
+
+  &__add-folder {
+    margin-right: 30px;
+    background: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+
+    svg {
+      width: 30px;
+      height: 30px;
+      transition: all 0.1s linear;
+      fill: #a5a5a5;
+    }
+
+    &:hover {
+      svg {
+        fill: $primary;
+      }
+    }
+  }
+
+  &__btn {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+
+    &:hover {
+      svg {
+        background-color: $primary;
+        fill: #fff;
+      }
+    }
+
+    svg {
+      width: 55px;
+      height: 55px;
+      margin-right: 10px;
+      padding: 15px;
+      background-color: rgb(0 0 0 / 2%);
+      border-radius: 50%;
+      transition: all 0.3s linear;
+    }
+  }
+
+  &__info {
+    &-memory {
+      padding: 17px;
+      border: 1px solid #f3f3f3;
+      border-radius: 40px;
+
+      span {
+        color: $primary;
+      }
+    }
+  }
+
+  input {
+    display: none;
+  }
+  @media (max-width: 992px) {
+    left: 0;
+  }
+  @media (max-width: 768px) {
+    justify-content: space-between;
+    font-size: 10px;
+
+    &__add-folder {
+      svg {
+        width: 20px;
+        height: 20px;
+      }
+    }
+
+    &__btn {
+      svg {
+        width: 35px;
+        height: 36px;
+        padding: 7px;
+      }
+    }
+  }
+}

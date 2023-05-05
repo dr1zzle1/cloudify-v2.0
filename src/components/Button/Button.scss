@@ -1,0 +1,29 @@
+@import '../../variables';
+
+.button {
+  display: flex;
+  align-items: center;
+  width: 260px;
+  padding: 20px 25px;
+  color: #fff;
+  font-size: 15px;
+  background: none;
+  border: none;
+  border-radius: 23px;
+  cursor: pointer;
+  transition: all 0.1s linear;
+
+  svg {
+    width: 20px;
+    height: 20px;
+    margin-right: 20px;
+  }
+
+  &:hover {
+    background: $primary;
+
+    svg {
+      fill: #fff;
+    }
+  }
+}

@@ -1,0 +1,110 @@
+@import '../../variables';
+.file {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  background: #fff;
+  border: 2px solid transparent;
+  border-radius: 25px;
+  box-shadow: 0 10px 20px rgb(0 0 0 / 20%);
+  cursor: pointer;
+  transition: all 0.1s linear;
+  user-select: none;
+
+  &:hover {
+    border: 2px solid $primary;
+    box-shadow: 0 10px 20px rgb(184 165 238 / 80%);
+  }
+
+  &__icons {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 25px;
+  }
+
+  &__icon {
+    width: 30px;
+    height: 30px;
+    fill: $primary;
+  }
+
+  &__dropdown {
+    &-btn {
+      cursor: pointer;
+
+      &:hover .dropdown-content {
+        display: flex;
+        flex-direction: column;
+      }
+    }
+  }
+
+  &__dots {
+    width: 30px;
+    height: 20px;
+    fill: #afafaf;
+  }
+
+  &__name {
+    margin-bottom: 15px;
+    padding: 0 25px;
+    font-weight: 900;
+    font-size: 20px;
+  }
+
+  &__date {
+    margin-bottom: 50px;
+    padding: 0 25px;
+    color: $tertiary;
+    font-weight: 600;
+    font-size: 13px;
+  }
+
+  &__size {
+    padding: 20px 25px;
+    background-color: #ddd;
+  }
+
+  &-enter-active {
+    animation: file-enter-active 500ms forwards;
+  }
+  @media (max-width: 992px) {
+    &__name {
+      font-size: 16px;
+    }
+  }
+  @media (max-width: 768px) {
+    &__name {
+      font-size: 12px;
+    }
+
+    &__icon {
+      width: 20px;
+      height: 20px;
+    }
+
+    &__dots {
+      width: 15px;
+      height: 20px;
+    }
+
+    &__date {
+      margin-bottom: 20px;
+    }
+  }
+}
+
+@keyframes file-enter-active {
+  0% {
+    transform: translateY(-50%);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
