@@ -7,11 +7,13 @@ const POP_FROM_STACK = 'POP_FROM_STACK'
 const DELETE_FILE = 'DELETE_FILE'
 const SET_ROOT_DIRS = 'SET_ROOT_DIRS'
 const SET_IS_LOADING = 'SET_IS_LOADING'
+const SET_CURRENT_DIR_NAME = 'SET_CURRENT_DIR_NAME'
 
 const defaultState = {
   files: [],
   rootDirs: [],
   currentDir: null,
+  currentDirName: null,
   popupDisplay: 'none',
   dirStack: [],
   isLoading: false,
@@ -27,6 +29,8 @@ export default function fileReducer(state = defaultState, action) {
       }
     case SET_CURRENT_DIR:
       return { ...state, currentDir: action.payload }
+    case SET_CURRENT_DIR_NAME:
+      return { ...state, currentDirName: action.payload }
     case ADD_FILE:
       return {
         ...state,
@@ -55,7 +59,8 @@ export default function fileReducer(state = defaultState, action) {
 }
 
 export const setFiles = (files) => ({ type: SET_FILES, payload: files })
-export const setCurrentDir = (dir) => ({ type: SET_CURRENT_DIR, payload: dir })
+export const setCurrentDir = (dirId) => ({ type: SET_CURRENT_DIR, payload: dirId })
+export const setCurrentDirName = (name) => ({ type: SET_CURRENT_DIR_NAME, payload: name })
 export const addFile = (file) => ({ type: ADD_FILE, payload: file })
 export const setPopupDisplay = (display) => ({
   type: SET_POPUP_DISPLAY,

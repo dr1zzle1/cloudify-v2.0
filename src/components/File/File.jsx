@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux'
 
 import { deleteFile, downloadFile } from '../../actions/file'
-import { pushToStack, setCurrentDir, setFiles } from '../../reducers/fileReducer'
+import { pushToStack, setCurrentDir, setCurrentDirName, setFiles } from '../../reducers/fileReducer'
 import sizeFormat from '../../utils/sizeFormat'
 import textShortener from '../../utils/textShortener'
 import Dropdown from '../Dropdown/Dropdown'
@@ -9,14 +9,15 @@ import '../File/File.scss'
 
 const File = ({ file }) => {
   const dispatch = useDispatch()
-  const currentDir = useSelector((state) => state.files.currentDir)
+  const { currentDir, currentDirName } = useSelector((state) => state.files)
   const { currentUser } = useSelector((state) => state.user)
 
   const openDirHandler = () => {
     if (file.type === 'dir') {
       dispatch(setFiles([]))
-      dispatch(pushToStack(currentDir))
+      dispatch(pushToStack([currentDir, currentDirName]))
       dispatch(setCurrentDir(file._id))
+      dispatch(setCurrentDirName(file.name))
       window.scrollTo(0, 0)
     }
   }

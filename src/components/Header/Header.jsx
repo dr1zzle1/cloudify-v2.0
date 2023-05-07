@@ -28,7 +28,7 @@ const Header = ({ showPopupHandler, fileUploadHandler, currentUser }) => {
       <div className='header__info'>
         <div className='header__info-memory'>
           <span>
-            {sizeFormat(currentUser.usedSpace)} / {sizeFormat(currentUser.diskSpace)}
+            {sizeFormat(currentUser.usedSpace)} / {sizeFormat(currentUser.diskSpace)}{' '}
           </span>
           Storage Used
         </div>
