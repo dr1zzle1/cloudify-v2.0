@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux'
 import { CSSTransition, TransitionGroup } from 'react-transition-group'
 
-import { setCurrentDir } from '../../reducers/fileReducer'
+import { pushToStack, setCurrentDir, setCurrentDirName, setFiles } from '../../reducers/fileReducer'
 import { logout } from '../../reducers/userReducer'
 import textShortener from '../../utils/textShortener'
 import Button from '../Button/Button'
@@ -9,9 +9,14 @@ import './Sidebar.scss'
 
 const Sidebar = () => {
   const dispatch = useDispatch()
-  const { rootDirs } = useSelector((state) => state.files)
-  const openDirHandler = (id) => {
-    dispatch(setCurrentDir(id))
+  const { rootDirs, currentDir, currentDirName } = useSelector((state) => state.files)
+  const openDirHandler = (dir) => {
+    if (currentDir != dir._id) {
+      dispatch(setFiles([]))
+      dispatch(setCurrentDir(dir._id))
+      dispatch(setCurrentDirName(dir.name))
+      dispatch(pushToStack([currentDir, currentDirName]))
+    }
   }
   return (
     <div className='sidebar'>
@@ -40,7 +45,7 @@ const Sidebar = () => {
                       </g>
                     </svg>
                   }
-                  onClick={() => openDirHandler(el._id)}
+                  onClick={() => openDirHandler(el)}
                 >
                   {textShortener(el.name, 15)}
                 </Button>
