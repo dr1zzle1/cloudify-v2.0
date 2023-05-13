@@ -7,7 +7,7 @@ import { setUser } from '../reducers/userReducer'
 export function getFiles(dirId) {
   return async (dispatch) => {
     try {
-      const response = await axios.get(`http://localhost:5000/api/files${dirId ? '?parent=' + dirId : ''}`, {
+      const response = await axios.get(`http://80.90.182.161:5000/api/files${dirId ? '?parent=' + dirId : ''}`, {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
       })
       dispatch(setFiles(response.data))
@@ -20,7 +20,7 @@ export function getFiles(dirId) {
 export function getRootDirs() {
   return async (dispatch) => {
     try {
-      const response = await axios.get(`http://localhost:5000/api/files`, {
+      const response = await axios.get(`http://80.90.182.161:5000/api/files`, {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
       })
       const dirs = response.data.filter((el) => el.type === 'dir')
@@ -39,7 +39,7 @@ export function createDir(dirId, name) {
     }
     try {
       const response = await axios.post(
-        `http://localhost:5000/api/files`,
+        `http://80.90.182.161:5000/api/files`,
         {
           name,
           parent: dirId,
@@ -67,7 +67,7 @@ export function uploadFile(file, dirId, currentUser) {
       const uploadFile = { name: file.name, progress: 0, id: Date.now() }
       dispatch(showUploader())
       dispatch(addUploadFile(uploadFile))
-      const response = await axios.post(`http://localhost:5000/api/files/upload`, formData, {
+      const response = await axios.post(`http://80.90.182.161:5000/api/files/upload`, formData, {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
         onUploadProgress: (progressEvent) => {
           const totalLength = progressEvent.lengthComputable
@@ -94,7 +94,7 @@ export function uploadFile(file, dirId, currentUser) {
 }
 
 export async function downloadFile(file) {
-  const response = await fetch(`http://localhost:5000/api/files/download?id=${file._id}`, {
+  const response = await fetch(`http://80.90.182.161:5000/api/files/download?id=${file._id}`, {
     headers: {
       Authorization: `Bearer ${localStorage.getItem('token')}`,
     },
@@ -114,7 +114,7 @@ export async function downloadFile(file) {
 export function deleteFile(file, currentUser) {
   return async (dispatch) => {
     try {
-      const response = await axios.delete(`http://localhost:5000/api/files?id=${file._id}`, {
+      const response = await axios.delete(`http://80.90.182.161:5000/api/files?id=${file._id}`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem('token')}`,
         },

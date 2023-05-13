@@ -1,7 +1,8 @@
 const express = require('express')
+const setupProxy = require('setupProxy')
 const path = require('path')
 
-const PORT = process.env.PORT || 8080
+const PORT = process.env.PORT || 80
 
 const app = express()
 app.use(express.static(__dirname))
