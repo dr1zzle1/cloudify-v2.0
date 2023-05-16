@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
 
@@ -12,9 +12,17 @@ import Disk from './pages/Disk/Disk'
 function App() {
   const { isAuth, isLoading } = useSelector((state) => state.user)
   const dispatch = useDispatch()
+  const [isMobile, setIsMobile] = useState(false)
 
   useEffect(() => {
     dispatch(auth())
+    if (
+      /Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(
+        navigator.userAgent,
+      )
+    ) {
+      setIsMobile(true)
+    }
   }, [dispatch])
 
   if (isLoading) {
@@ -33,7 +41,7 @@ function App() {
         ) : (
           <>
             <Routes>
-              <Route path='/' element={<Disk />} />
+              <Route path='/' element={<Disk isMobile={isMobile} />} />
               <Route path='*' element={<Navigate to='/' replace />} />
             </Routes>
           </>

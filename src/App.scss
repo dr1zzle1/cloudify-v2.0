@@ -1,7 +1,7 @@
 @font-face {
   font-family: Gladiora;
-  src: url('./font/gladiora-regular.ttf') format('ttf'), url('gladiora-regular-webfont.woff2') format('woff2'),
-    url('gladiora-regular-webfont.woff') format('woff');
+  src: url('./font/gladiora-regular.ttf') format('ttf'), url('./font/gladiora-regular-webfont.woff2') format('woff2'),
+    url('./font/gladiora-regular-webfont.woff') format('woff');
 }
 
 @import 'variables.scss';

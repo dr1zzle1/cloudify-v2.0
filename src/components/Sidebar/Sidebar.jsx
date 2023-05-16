@@ -7,7 +7,7 @@ import textShortener from '../../utils/textShortener'
 import Button from '../Button/Button'
 import './Sidebar.scss'
 
-const Sidebar = () => {
+const Sidebar = ({ isVisible, setIsVisible }) => {
   const dispatch = useDispatch()
   const { rootDirs, currentDir, currentDirName } = useSelector((state) => state.files)
   const openDirHandler = (dir) => {
@@ -19,8 +19,13 @@ const Sidebar = () => {
     }
   }
   return (
-    <div className='sidebar'>
-      <span className='sidebar__logo'>Cloudify</span>
+    <div className={isVisible ? 'sidebar' : 'novisble'}>
+      <div className='sidebar__header'>
+        <span className='sidebar__logo'>Cloudify</span>
+        <button onClick={() => setIsVisible(false)} className='sidebar__btn'>
+          X
+        </button>
+      </div>
       <TransitionGroup className='sidebar__filelist'>
         {rootDirs.map((el) => {
           if (el.type === 'dir') {

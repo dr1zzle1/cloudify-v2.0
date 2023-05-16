@@ -6,12 +6,18 @@
   height: 100vh;
   padding: 10px;
   background-color: $dark;
-
   &__logo {
     padding-left: 25px;
     color: #fff;
     font-size: 30px;
     cursor: pointer;
+  }
+  &__header {
+    display: flex;
+    justify-content: space-between;
+  }
+  &__btn {
+    display: none;
   }
 
   &__filelist {
@@ -31,6 +37,36 @@
     }
   }
   @media (max-width: 992px) {
-    display: none;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    border-left: 2px solid $primary;
+    border-radius: 10px 0px 0px 10px;
+    z-index: 10000;
+    animation: sidebarAnimVisible 500ms forwards;
+    &__btn {
+      display: inline-block;
+      background: none;
+      border: none;
+      font-size: 30px;
+      text-align: center;
+      color: #fff;
+    }
+  }
+}
+
+.novisble {
+  display: none;
+}
+
+@keyframes sidebarAnimVisible {
+  0% {
+    transform: translateX(50%);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateX(0);
+    opacity: 1;
   }
 }

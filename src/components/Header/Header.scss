@@ -19,7 +19,14 @@
   &__btns {
     display: flex;
   }
-
+  &__burger {
+    display: flex;
+    align-items: center;
+    margin-left: 30px;
+    img {
+      width: 30px;
+    }
+  }
   &__add-folder {
     margin-right: 30px;
     background: transparent;
@@ -85,6 +92,7 @@
   @media (max-width: 768px) {
     justify-content: space-between;
     font-size: 10px;
+    padding: 7px 20px 7px 30px;
 
     &__add-folder {
       svg {
@@ -94,11 +102,25 @@
     }
 
     &__btn {
+      font-size: 0;
       svg {
         width: 35px;
         height: 36px;
         padding: 7px;
       }
     }
+    &__info {
+      display: none;
+    }
   }
+}
+
+.burger {
+  &__btn {
+    background: none;
+    border: none;
+  }
+}
+.novisible {
+  display: none;
 }

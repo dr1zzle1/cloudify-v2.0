@@ -1,5 +1,4 @@
 const express = require('express')
-const setupProxy = require('setupProxy')
 const path = require('path')
 
 const PORT = process.env.PORT || 80

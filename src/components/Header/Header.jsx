@@ -1,7 +1,8 @@
+import burger from '../../assets/burger.png'
 import sizeFormat from '../../utils/sizeFormat'
 import './Header.scss'
 
-const Header = ({ showPopupHandler, fileUploadHandler, currentUser }) => {
+const Header = ({ showPopupHandler, fileUploadHandler, currentUser, showSidebar, isMobile }) => {
   return (
     <div className='disk__header header'>
       <div className='header__btns'>
@@ -32,6 +33,11 @@ const Header = ({ showPopupHandler, fileUploadHandler, currentUser }) => {
           </span>
           Storage Used
         </div>
+      </div>
+      <div className={isMobile ? 'header__burger burger' : 'novisible'}>
+        <button onClick={showSidebar} className='burger__btn'>
+          <img src={burger} />
+        </button>
       </div>
     </div>
   )

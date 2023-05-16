@@ -10,11 +10,12 @@ import Uploader from '../../components/Uploader/Uploader'
 import { setPopupDisplay } from '../../reducers/fileReducer'
 import './Disk.scss'
 
-const Disk = () => {
+const Disk = ({ isMobile }) => {
   const dispatch = useDispatch()
   const { currentDir } = useSelector((state) => state.files)
   const { currentUser } = useSelector((state) => state.user)
   const [dragEnter, setDragEnter] = useState(false)
+  const [isVisibleSidebar, setIsVisibleSidebar] = useState(true)
 
   const fileUploadHandler = (event) => {
     const files = [...event.target.files]
@@ -23,6 +24,9 @@ const Disk = () => {
 
   const showPopupHandler = () => {
     dispatch(setPopupDisplay('flex'))
+  }
+  const showSidebar = () => {
+    setIsVisibleSidebar(true)
   }
 
   const dragEnterHandler = (event) => {
@@ -47,11 +51,12 @@ const Disk = () => {
   useEffect(() => {
     dispatch(getFiles(currentDir))
     dispatch(getRootDirs())
-  }, [currentDir, dispatch])
+    setIsVisibleSidebar(!isMobile)
+  }, [currentDir, dispatch, isMobile])
 
   return (
     <div className='disk__wrapper'>
-      <Sidebar />
+      <Sidebar isVisible={isVisibleSidebar} setIsVisible={setIsVisibleSidebar} />
       <Popup />
       {!dragEnter ? (
         <div
@@ -60,7 +65,13 @@ const Disk = () => {
           onDragLeave={drageLeaveHandler}
           onDragOver={dragEnterHandler}
         >
-          <Header showPopupHandler={showPopupHandler} fileUploadHandler={fileUploadHandler} currentUser={currentUser} />
+          <Header
+            showSidebar={showSidebar}
+            showPopupHandler={showPopupHandler}
+            fileUploadHandler={fileUploadHandler}
+            currentUser={currentUser}
+            isMobile={isMobile}
+          />
           <FileList />
           <Uploader />
         </div>
