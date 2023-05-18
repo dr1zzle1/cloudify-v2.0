@@ -1,26 +1,53 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.4.14,
+* Autoprefixer: v10.4.7
+* Browsers: last 4 version
+*/
+
 @import '../../variables';
 .file {
   position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
   justify-content: space-between;
   overflow: hidden;
   background: #fff;
   border: 2px solid transparent;
   border-radius: 25px;
+  -webkit-box-shadow: 0 10px 20px rgb(0 0 0 / 20%);
   box-shadow: 0 10px 20px rgb(0 0 0 / 20%);
   cursor: pointer;
+  -webkit-transition: all 0.1s linear;
+  -o-transition: all 0.1s linear;
   transition: all 0.1s linear;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
   user-select: none;
 
   &:hover {
     border: 2px solid $primary;
+    -webkit-box-shadow: 0 10px 20px rgb(184 165 238 / 80%);
     box-shadow: 0 10px 20px rgb(184 165 238 / 80%);
   }
 
   &__icons {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
     justify-content: space-between;
     padding: 25px;
   }
@@ -36,7 +63,12 @@
       cursor: pointer;
 
       &:hover .dropdown-content {
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
         flex-direction: column;
       }
     }
@@ -69,6 +101,7 @@
   }
 
   &-enter-active {
+    -webkit-animation: file-enter-active 500ms forwards;
     animation: file-enter-active 500ms forwards;
   }
   @media (max-width: 992px) {
@@ -97,13 +130,29 @@
   }
 }
 
-@keyframes file-enter-active {
+@-webkit-keyframes file-enter-active {
   0% {
+    -webkit-transform: translateY(-50%);
     transform: translateY(-50%);
     opacity: 0;
   }
 
   100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes file-enter-active {
+  0% {
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    opacity: 0;
+  }
+
+  100% {
+    -webkit-transform: translateY(0);
     transform: translateY(0);
     opacity: 1;
   }

@@ -16,10 +16,12 @@
 
   &-visible {
     display: block;
+    -webkit-animation: uploaderAnimVisible 500ms forwards;
     animation: uploaderAnimVisible 500ms forwards;
   }
 
   &-unvisible {
+    -webkit-animation: uploaderAnimUnvisible 500ms forwards;
     animation: uploaderAnimUnvisible 500ms forwards;
   }
   @media (max-width: 768px) {
@@ -27,8 +29,14 @@
   }
 
   &__header {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
     justify-content: space-between;
     margin-bottom: 10px;
   }
@@ -55,12 +63,18 @@
   border-top: 2px solid $tertiary;
 
   &__header {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
     justify-content: space-between;
   }
 
   &__progressBar {
     position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     height: 1rem;
     margin: 3px 0;
@@ -88,26 +102,59 @@
   }
 }
 
-@keyframes uploaderAnimVisible {
+@-webkit-keyframes uploaderAnimVisible {
   0% {
+    -webkit-transform: translateY(50%);
     transform: translateY(50%);
     opacity: 0;
   }
 
   100% {
+    -webkit-transform: translateY(0);
     transform: translateY(0);
     opacity: 1;
   }
 }
-@keyframes uploaderAnimUnvisible {
+
+@keyframes uploaderAnimVisible {
+  0% {
+    -webkit-transform: translateY(50%);
+    transform: translateY(50%);
+    opacity: 0;
+  }
+
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@-webkit-keyframes uploaderAnimUnvisible {
   0% {
     display: block;
+    -webkit-transform: translateY(0);
     transform: translateY(0);
     opacity: 1;
   }
 
   100% {
     display: none;
+    -webkit-transform: translateY(50%);
+    transform: translateY(50%);
+    opacity: 0;
+  }
+}
+@keyframes uploaderAnimUnvisible {
+  0% {
+    display: block;
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  100% {
+    display: none;
+    -webkit-transform: translateY(50%);
     transform: translateY(50%);
     opacity: 0;
   }
